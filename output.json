@@ -4,49 +4,21 @@
     "object": {
       "responseStatusCode": 0,
       "productId": 14100354,
-      "coordinate": "1.12.0.0.0.0.0.0.0.0",
-      "vectorId": 107579646,
+      "coordinate": "28.109.0.0.0.0.0.0.0.0",
+      "vectorId": 1574178041,
       "vectorDataPoint": [
-        {
-          "refPer": "2023-08-01",
-          "refPer2": "",
-          "refPerRaw": null,
-          "refPerRaw2": "",
-          "value": null,
-          "decimals": 0,
-          "scalarFactorCode": 0,
-          "symbolCode": 0,
-          "statusCode": 1,
-          "securityLevelCode": 0,
-          "releaseTime": null,
-          "frequencyCode": 6
-        },
-        {
-          "refPer": "2023-09-01",
-          "refPer2": "",
-          "refPerRaw": null,
-          "refPerRaw2": "",
-          "value": null,
-          "decimals": 0,
-          "scalarFactorCode": 0,
-          "symbolCode": 0,
-          "statusCode": 1,
-          "securityLevelCode": 0,
-          "releaseTime": null,
-          "frequencyCode": 6
-        },
         {
           "refPer": "2023-10-01",
           "refPer2": "",
-          "refPerRaw": null,
+          "refPerRaw": "2023-10-01",
           "refPerRaw2": "",
-          "value": null,
-          "decimals": 0,
+          "value": 6.7,
+          "decimals": 1,
           "scalarFactorCode": 0,
           "symbolCode": 0,
-          "statusCode": 1,
+          "statusCode": 0,
           "securityLevelCode": 0,
-          "releaseTime": null,
+          "releaseTime": "2023-11-03T08:30",
           "frequencyCode": 6
         }
       ]

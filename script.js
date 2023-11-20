@@ -30,6 +30,7 @@ async function getDataFromCube(apiUrl, productId, coordinateValues, latestN, out
 
     if (data && Array.isArray(data) && data.length > 0) {
       // Assuming the response is an array of data objects
+      console.log(data[0].object.vectorDataPoint[0].value)
       const fileName = 'output.json'; // Change this to the desired output file name
       const filePath = path.join(outputPath, fileName);
 
@@ -47,8 +48,8 @@ async function getDataFromCube(apiUrl, productId, coordinateValues, latestN, out
 // Example usage:
 const apiUrl = 'https://www150.statcan.gc.ca/t1/wds/rest/getDataFromCubePidCoordAndLatestNPeriods';
 const productId = 14100354;
-const coordinateValues = [1, 12, 0, 0, 0, 0, 0, 0, 0, 0];
-const latestN = 3;
+const coordinateValues = [28, 109, 0, 0, 0, 0, 0, 0, 0, 0];
+const latestN = 1;
 const outputPath = __dirname; // You can change this to the desired output directory
 
 getDataFromCube(apiUrl, productId, coordinateValues, latestN, outputPath);
