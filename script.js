@@ -46,9 +46,9 @@ async function getDataFromCube(apiUrl, productId, coordinateValues, latestN, out
 
 // Example usage:
 const apiUrl = 'https://www150.statcan.gc.ca/t1/wds/rest/getDataFromCubePidCoordAndLatestNPeriods';
-const productId = 1410035401;
-const coordinateValues = [1,2,0, 0, 0, 0, 0, 0, 0, 0, 0];
-const latestN = 1;
+const productId = 14100354;
+const coordinateValues = [1, 12, 0, 0, 0, 0, 0, 0, 0, 0];
+const latestN = 3;
 const outputPath = __dirname; // You can change this to the desired output directory
 
 getDataFromCube(apiUrl, productId, coordinateValues, latestN, outputPath);
