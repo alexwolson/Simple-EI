@@ -19,6 +19,7 @@ const App = () => {
 
 
     const submitForm = () => {
+        console.log(postalCode)
         fetch('https://simple-ei.onrender.com/process', {
             method: 'POST',
             headers: {
@@ -26,16 +27,28 @@ const App = () => {
             },
             body: JSON.stringify({ postal_code: postalCode }),
         })
-            .then(response => response.json())
-            .then(data => {
-                setResponseData(data.data);
-                setError(null);
+            .then(response => {
+                console.log('Response status:', response.status);
+                if (!response.ok) {
+                    return response.text().then(text => { throw new Error(`HTTP error! status: ${response.status}, message: ${text}`) });
+                }
+                return response.json();
+            }).then(data => {
+                console.log('Response data:', data);
+                // Check if data.data exists and is in the expected format
+                if (data && Array.isArray(data.data.data)) {
+                    setResponseData(data.data.data);
+                    setError(null);
+                } else {
+                    throw new Error('Invalid data format received from server.');
+                }
             })
             .catch(error => {
                 console.error('Error:', error);
                 setError('Error: ' + error);
                 setResponseData(null);
             });
+            
     };
 
     const createTableFromData = (data) => {
