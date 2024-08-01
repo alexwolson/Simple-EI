@@ -8,64 +8,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
 
-<div class="container mt-5">
-    <form id="postalCodeForm">
-        <div class="mb-3 mt-3">
-            <label for="postal_code" class="form-label">Postal Code:</label>
-            <input type="text" class="form-control" id="postal_code" placeholder="Enter Postal Code" name="postal_code">
-        </div>
-        <button type="button" class="btn btn-primary" onclick="submitForm()">Submit</button>
-    </form>
-    <div id="response" class="table-responsive"></div>
-</div>
 
-<script>
-    function submitForm() {
-        const postalCode = document.getElementById('postal_code').value;
-
-        fetch('https://simple-ei.onrender.com/process', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ postal_code: postalCode }),
-        })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('response').innerHTML = createTableFromData(data.data);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                document.getElementById('response').innerText = 'Error: ' + error;
-            });
-    }
-
-    function createTableFromData(data) {
-        if (!data || !data.data || data.data.length === 0) {
-            return 'No data available';
-        }
-
-        let table = '<table class="table table-bordered mt-3"><thead><tr>';
-        const keys = Object.keys(data.data[0]);
-        keys.forEach(key => {
-            const capitalizedKey = key.replace(/_/g, ' ').replace(/^\w/, c => c.toUpperCase()); // Capitalize first letter
-            table += `<th>${capitalizedKey}</th>`;
-        });
-        table += '</tr></thead><tbody>';
-
-        data.data.forEach(row => {
-            table += '<tr>';
-            keys.forEach(key => {
-                table += `<td>${row[key]}</td>`;
-            });
-            table += '</tr>';
-        });
-
-        table += '</tbody></table>';
-        return table;
-    }
-</script>
-
+    
+    
+    <script>
+       
+    </script>
 </body>
 </html>
