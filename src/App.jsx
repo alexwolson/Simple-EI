@@ -1,12 +1,22 @@
 import { useState } from 'react'
 import './App.css'
-
+import { useForm } from 'react-hook-form';
+import Employment from './Employment';
 
 
 const App = () => {
     const [postalCode, setPostalCode] = useState('');
     const [responseData, setResponseData] = useState(null);
     const [error, setError] = useState(null);
+
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm()
+
+
 
     const submitForm = () => {
         fetch('https://simple-ei.onrender.com/process', {
@@ -71,7 +81,14 @@ const App = () => {
                 {error && <p>{error}</p>}
                 {responseData && createTableFromData(responseData)}
             </div>
+
+            <Employment></Employment>
+
+            
         </div>
+        
+
+        
     );
 };
 
