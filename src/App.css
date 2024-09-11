@@ -5,17 +5,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   margin: 0;
+  width: 100vw; /* Ensure the body takes full width */
 }
 
 .App {
-  max-width: 600px;
-  margin: 0 auto;
-  background-color: #ffffff;
+  width: 100%; /* Take full width of the screen */
+  max-width: 600px; /* Set a max width to control form size */
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Center the form */
+}
+
+form {
+  width: 100%; /* Make form take the full width */
 }
 
 h1, h2 {
@@ -25,6 +27,8 @@ h1, h2 {
 
 label {
   color: #333333;
+  width: 100%; /* Ensure label takes full width */
+  display: block; /* Ensure label acts as a block */
 }
 
 input {
@@ -35,17 +39,37 @@ input {
   border: 1px solid #cccccc;
 }
 
+input[type="text"] {
+  width: 100%; /* Makes the input take full width of the form */
+  padding: 10px;
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+/* Remove arrows in number input for Chrome, Safari, Edge, and Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove arrows in number input for Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 button {
   width: 100%;
   padding: 10px;
   background-color: #ec5990;
-  color: #ffffff;
+  color: #0e0e0e;
   border: none;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #bf1650;
+.button-disabled {
+  background-color: #cccccc;
+  color: #ffffff;
+  cursor: not-allowed;
 }
 
 /* Dark mode styles */
@@ -53,13 +77,6 @@ button:hover {
   body {
     background: #0e101c;
     color: #ffffff;
-  }
-
-  .App {
-    background-color: #1c1e2b;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
   }
 
   h1, h2 {
@@ -81,8 +98,8 @@ button:hover {
     color: #ffffff;
   }
 
-  button:hover {
-    background-color: #ec5990;
-  }
+    .button-disabled {
+        background-color: #333333;
+        color: #ffffff;
+    }
 }
-
